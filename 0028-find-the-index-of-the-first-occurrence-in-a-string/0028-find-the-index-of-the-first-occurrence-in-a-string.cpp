@@ -1,11 +1,7 @@
 class Solution {
 public:
     int strStr(string haystack, string needle) {
-        int i=haystack.size(),j=needle.size();
-        for(int k=0;k<=i-j;k++){
-            if(haystack.substr(k,j)==needle) return k;
-        }
-        return -1;     
+          return haystack.find(needle);
     }
 };
 
