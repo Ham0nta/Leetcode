@@ -1,26 +1,17 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        int left = 0;
-        int right = s.size() - 1;
-
-        while (left < right) {
-
-            while (left < right && !isalnum(s[left]))
-                left++;
-
-            while (left < right && !isalnum(s[right]))
-                right--;
-
-            if (tolower(s[left]) != tolower(s[right]))
-                return false;
-
-            left++;
-            right--;
+        if(s.size()==0) return true;
+        string st;
+        for (int i=0;i<s.size();i++){
+            s[i]=tolower(s[i]);
+            if((s[i]>='a' && s[i]<='z') ||(s[i]>='0' && s[i]<='9')) st+=s[i];
         }
-
+        for (int i=0;i<st.size();i++){
+            if (st[i]!=st[st.size()-i-1]) return false;
+        }
         return true;
-    }
+    } 
 };
 
 // Synced seamlessly with LeetHub Pro
