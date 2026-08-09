@@ -10,14 +10,17 @@
  * };
  */
 class Solution {
-vector<int>v;
 public:
-    vector<int> preorderTraversal(TreeNode* root) {
+    void track(TreeNode* root,vector<int>& v){
         if(root!=nullptr) {
             v.push_back(root->val);
-            preorderTraversal(root->left);
-            preorderTraversal(root->right);
+            track(root->left,v);
+            track(root->right,v);
         }
+    }
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int>v;
+        track(root,v);
         return v;
     }
 };
